@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock title %}
+{% block nav-style %}mkt-nav{% endblock nav-style %}
+
+{% block content %}
+
+<div class="mkt-s1">
+	<div class="mkt-s1-body container">
+		<div class="row">
+			<h1 class="col-md-10" style="font-size: 24px">Capture Every Moment</h1>
+		</div>
+	</div>
+</div>
+	<div class="mkt-s2 container">
+		
+			<div class="col-md-4 mkt-vp">
+				<img src="{{ STATIC_URL }}images/dream.jpg" style="width:210px; height:150px">
+			</div>
+			<div class="col-md-4 mkt-vp">
+				<img src="{{ STATIC_URL }}images/car.jpg" style="width:210px; height:150px">
+			</div>
+			<div class="col-md-4 mkt-vp">
+				<img src="{{ STATIC_URL }}images/wolf.jpg" style="width:210px; height:150px">
+			
+	</div>
+
+{% endblock %}

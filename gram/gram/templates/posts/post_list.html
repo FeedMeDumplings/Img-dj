@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Post List{% endblock %}
+
+{% block content %}
+<div id="content-container" class="container p-none">
+<div id="al-container" class="side-p">
+<div id="al-control">
+<h3 class="ad-mh">Posts</h3></div>
+<span class="pull-right">
+    <a href="{% url 'post_create' %}" class="btn btn-link p-r-none"> + Post</a>
+</span>
+	{# Post List Here #}
+	<ul id="al-group" class="strip-list">
+    	<h4>Welcome {{ user.username }}</h4>
+        	{% for post in posts %}
+        		<li class="al-item">
+        			<a href="{{ post.get_absolute_url}}">{{ post.title }}</a>
+        			{% if post.image %}
+        				<img src='{{ post.image.url }}' style="width:300px; height: auto" class="img-responsive">
+        			{% endif %}
+        			{{ post.created_on }}
+        		</li>
+        	{% endfor %}
+	</ul>
+	{# Pagination Section #}
+	{% if is_paginated %}
+    <div id="al-paginate">
+        <ul class="strip-list al-pgnt-list">
+            {% if page_obj.has_previous %}
+                <li class="pull-left">
+                    <a href="{% url 'post_list' %}?page={{ page_obj.previous_page_number }}
+                    {% if request.GET.post %}&post={{ request.GET.post }}{% endif %}">Prev</a>
+                </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <li class="pull-right">
+                    <a href="{% url 'post_list' %}?page={{ page_obj.next_page_number }}
+                    {% if request.GET.post %}&post={{ request.GET.post }}{% endif %}">Next</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+{% endif %}
+</div>
+</div>
+{% endblock content %}

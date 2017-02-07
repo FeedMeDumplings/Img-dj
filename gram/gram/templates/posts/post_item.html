@@ -1,0 +1,16 @@
+<form id="ig-form" action="" method="post" enctype='multipart/form-data'>
+	{% csrf_token %}
+	<div id="gi-h-w">
+	<h3 class="gi-mh">{{ form.title }}</h3>
+	<span>{{ form.title.errors }}</span>
+	</div>
+	<div class="row">
+	<div class="col-md-9">
+	<p>{{ form.image }}</p>
+	<span>{{ form.image.errors }}</span>
+	</div>
+	</div>
+	<input id="gi-form-submit" class="btn btn-primary" type="submit" value="SAVE">
+	<p>{{ form.non_field_errors }}</p>
+</form>
+
